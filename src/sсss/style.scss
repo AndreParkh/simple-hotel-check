@@ -1,2 +1,36 @@
-@import "_Header"
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+@import "_Header";
+@import "_FindForm";
+
+.container {
+	margin: 0 auto;
+	
+	max-width: 1048px;
+}
+
+.column {
+	display: flex;
+	flex-direction: row;
+	gap: 24px;
+
+	&__left {
+		min-width: 360px;
+		display: flex;
+
+		flex-direction: column;
+		gap: 24px;
+	}
+
+	&__right {
+		display: flex;
+		flex: 1 1 auto;
+	}
+}
+
+.template {
+	background: #fff;
+	padding: 32px;
+	border-radius: 16px;
+}
+
 

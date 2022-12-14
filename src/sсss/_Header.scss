@@ -19,19 +19,19 @@ body{
 		padding: 31px;
 
 		font-size: 24px;
+		line-height: 28/24*1em;
 	}
 
 	&__logout {
 		margin: auto 0;
 		padding-right: 36px;
-		align-items: center;
 	}
 }
 
 .logout {
 
 	&__text {
-		// font-weight: 400;
+		font-weight: 400;
 		font-size: 16px;
 		line-height: 20/16*1em;
 	}

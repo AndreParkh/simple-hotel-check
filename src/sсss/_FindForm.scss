@@ -1,0 +1,17 @@
+.findform {
+
+	&__item {
+	}
+
+	&__title {
+	font-size: 16px;
+	line-height: 19/16*1em;
+	}
+
+	&__field {
+		display: block;
+
+		width: 296px;
+		height: 50px;
+	}
+}

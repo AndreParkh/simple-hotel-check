@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
 * {
   color: #424242;
   font-family: "Roboto";
@@ -16,14 +17,51 @@ body {
   margin: 0;
   padding: 31px;
   font-size: 24px;
+  line-height: 1.1666666667em;
 }
 .header__logout {
   margin: auto 0;
   padding-right: 36px;
-  align-items: center;
 }
 
 .logout__text {
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.25em;
+}
+.findform__title {
+  font-size: 16px;
+  line-height: 1.1875em;
+}
+.findform__field {
+  display: block;
+  width: 296px;
+  height: 50px;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1048px;
+}
+
+.column {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+.column__left {
+  min-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.column__right {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.template {
+  background: #fff;
+  padding: 32px;
+  border-radius: 16px;
 }
