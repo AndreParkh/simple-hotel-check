@@ -1,19 +1,39 @@
-header {
+*{
+	color: #424242;
+	font-family: "Roboto";
+}
+
+body{
+	margin: 0;
+	background: #E5E5E5;
+}
+
+.header {
 	display: flex;
-	flex: space-between;
+	justify-content: space-between;
+	
 	
 	
 	&__title {
-		padding: 20px;
+		margin: 0;
+		padding: 31px;
+
+		font-size: 24px;
 	}
 
 	&__logout {
+		margin: auto 0;
+		padding-right: 36px;
+		align-items: center;
 	}
 }
 
 .logout {
 
 	&__text {
+		// font-weight: 400;
+		font-size: 16px;
+		line-height: 20/16*1em;
 	}
 
 	&__img {

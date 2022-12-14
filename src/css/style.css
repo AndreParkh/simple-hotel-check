@@ -1,8 +1,29 @@
-header {
-  display: flex;
-  flex: space-between;
+* {
+  color: #424242;
+  font-family: "Roboto";
 }
-header__title {
-  padding: 20px;
+
+body {
   margin: 0;
+  background: #E5E5E5;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+.header__title {
+  margin: 0;
+  padding: 31px;
+  font-size: 24px;
+}
+.header__logout {
+  margin: auto 0;
+  padding-right: 36px;
+  align-items: center;
+}
+
+.logout__text {
+  font-size: 16px;
+  line-height: 1.25em;
 }
