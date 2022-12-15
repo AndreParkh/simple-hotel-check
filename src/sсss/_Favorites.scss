@@ -1,0 +1,75 @@
+.favorites {
+	flex: 1 0 auto;
+	margin: 0px 0px 24px 0px;
+	
+
+	&__title {
+		margin: 0px 0px 32px 0px;
+
+		font-size: 24px;
+		font-weight: 500;
+	}
+
+	&__sorts {
+		display: flex;
+		flex-direction: row;
+		gap: 8px;
+		margin: 0px 0px 32px 0px;
+		
+	}
+
+	&__sort {
+		display: flex;
+		flex-direction: row;
+		padding: 4px 8px;
+		color: #E5E5E5;
+
+		font-weight: 400;
+		
+		background: #FFFFFF;
+		border: 1px solid #E5E5E5; //#E5E5E5
+		border-radius: 4px;
+	}
+
+	&__items {
+	}
+
+	&__item {
+	}
+}
+.arrows{
+	position: relative;
+	margin: auto;
+	margin-left: 8px;
+}
+
+.arrow {	
+	position: relative;
+	// position: absolute;
+	
+	width: 5px;
+	height: 5px;
+	
+	border-bottom: 2px solid #E5E5E5;
+	border-right: 2px solid #E5E5E5;
+	
+	
+	&__up {
+		transform: rotate(-135deg);
+		top: 1.5px;
+	}
+	
+	&__down {
+		top: -1.5px;
+		transform: rotate(45deg);
+		// position: absolute;
+	}
+}
+
+.sortActive{
+	border-color: #41522E;
+	color: #41522E;
+}
+
+.hotel {
+}

@@ -20,12 +20,56 @@
 				<div class="findform template">
 					<div class="findform__item">
 						<div class="findform__title">Локация</div>
-						<input type="text" class="findform__field">
+						<input type="text" class="findform__field" placeholder="Москва">
 					</div>
+					<div class="findform__item">
+						<div class="findform__title">Дата заселения</div>
+						<input type="date" class="findform__field">
+					</div>
+					<div class="findform__item">
+						<div class="findform__title">Количество дней</div>
+						<input type="number" class="findform__field" placeholder="1">
+					</div>
+					<button class="findform__btn btn">Найти</button>
 
 				</div>
 				<div class="favorites template">
-					Избранное
+					<h3 class="favorites__title">Избранное</h3>
+					<div class="favorites__sorts">
+						<button class="favorites__sort sortActive">
+							Рейтинг
+							<div class="arrows">
+								<div class="arrow__up arrow sortActive"></div>
+								<div class="arrow__down arrow"></div>
+							</div>
+						</button>
+						<button class="favorites__sort">
+							Цена
+							<div class="arrows">
+								<div class="arrow__up arrow"></div>
+								<div class="arrow__down arrow"></div>
+							</div>
+						</button>
+					</div>
+					<div class="favorites__items">
+						<div class="favorites__item hotel">
+							<div class="hotel__title">
+								<div class="hotel__name">Moscow Marriott Grand Hotel</div>
+								<div class="hotel__isFavorite"></div>
+							</div>
+							<div class="hotel__dateInfo">
+								<div class="hotel__date">28 June, 2020 <span></span> 1 день</div>
+							</div>
+							<div class="hotel__info">
+								<div class="hotel__rating"></div>
+								<div class="hotel__price">
+									<p>Price: <b>23 924 ₽</b></p>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					
 				</div>
 			</div>
 			<div class="column__right">

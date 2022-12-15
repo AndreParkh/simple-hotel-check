@@ -29,14 +29,81 @@ body {
   font-size: 16px;
   line-height: 1.25em;
 }
-.findform__title {
+.findform__item {
   font-size: 16px;
-  line-height: 1.1875em;
+  margin: 0px 0px 16px 0px;
+}
+.findform__item:last-of-type {
+  margin: 0;
+}
+.findform__title {
+  margin: 0px 0px 7px 0px;
+  line-height: 1.25em;
+  font-weight: 500;
 }
 .findform__field {
-  display: block;
+  box-sizing: border-box;
   width: 296px;
   height: 50px;
+  padding: 0px 15px;
+  font-weight: 300;
+  border: 1px solid #C9CACC;
+  border-radius: 4px;
+}
+.findform__btn {
+  margin: 32px 0px 0px 0px;
+}
+
+.favorites {
+  flex: 1 0 auto;
+  margin: 0px 0px 24px 0px;
+}
+.favorites__title {
+  margin: 0px 0px 32px 0px;
+  font-size: 24px;
+  font-weight: 500;
+}
+.favorites__sorts {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin: 0px 0px 32px 0px;
+}
+.favorites__sort {
+  display: flex;
+  flex-direction: row;
+  padding: 4px 8px;
+  color: #E5E5E5;
+  font-weight: 400;
+  background: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  border-radius: 4px;
+}
+.arrows {
+  position: relative;
+  margin: auto;
+  margin-left: 8px;
+}
+
+.arrow {
+  position: relative;
+  width: 5px;
+  height: 5px;
+  border-bottom: 2px solid #E5E5E5;
+  border-right: 2px solid #E5E5E5;
+}
+.arrow__up {
+  transform: rotate(-135deg);
+  top: 1.5px;
+}
+.arrow__down {
+  top: -1.5px;
+  transform: rotate(45deg);
+}
+
+.sortActive {
+  border-color: #41522E;
+  color: #41522E;
 }
 
 .container {
@@ -56,8 +123,56 @@ body {
   gap: 24px;
 }
 .column__right {
-  display: flex;
   flex: 1 1 auto;
+}
+
+.btn {
+  width: 296px;
+  height: 50px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  background: linear-gradient(104.34deg, #41522E -15.34%, #BE8022 145.95%);
+}
+.btn:hover {
+  cursor: pointer;
+}
+
+.hotel {
+  padding: 0px 0px 15px 0px;
+  border-bottom: 1px solid rgba(135, 135, 135, 0.2);
+}
+.hotel__title {
+  display: flex;
+  justify-content: space-between;
+}
+.hotel__name {
+  font-size: 17px;
+  font-weight: 300;
+}
+.hotel__dateInfo {
+  font-weight: 400;
+  font-size: 14px;
+  color: #878787;
+}
+.hotel__date {
+  color: inherit;
+}
+.hotel__info {
+  display: flex;
+  justify-content: space-between;
+}
+.hotel__price p {
+  margin: 0;
+  font-weight: 300;
+  font-size: 11px;
+  color: #878787;
+}
+.hotel__price b {
+  font-weight: 400;
+  font-size: 17px;
 }
 
 .template {
