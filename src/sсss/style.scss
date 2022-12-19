@@ -2,11 +2,14 @@
 @import "_Header";
 @import "_FindForm";
 @import "_Favorites";
+@import "_Hotel";
+@import "_Content";
 
 .container {
 	margin: 0 auto;
 	
 	max-width: 1048px;
+	min-width: 1048px;
 }
 
 .column {
@@ -24,7 +27,7 @@
 
 	&__right {
 		// display: flex;
-		flex: 1 1 auto;
+		flex: 1 0 auto;
 	}
 }
 
@@ -40,75 +43,15 @@
 	border-radius: 4px;
 
 	background: linear-gradient(104.34deg, #41522E -15.34%, #BE8022 145.95%);
+	transition: all 0.2s ease-out;
 	&:hover {
 		cursor: pointer;
+		opacity: 0.8;
 	}
 }
-
-
-.hotel {
-	padding: 0px 0px 15px 0px;
-	
-	border-bottom: 1px solid rgba(135, 135, 135, 0.2);;
-
-	&__title {
-		display: flex;
-		justify-content: space-between;
-	}
-
-	&__name {
-		font-size: 17px;
-		font-weight: 300;
-	}
-
-	&__isFavorite {
-	}
-
-	&__dateInfo {
-		font-weight: 400;
-		font-size: 14px;
-		color: #878787;
-	}
-
-	&__date {
-		color: inherit;
-	}
-
-	&__qtyDays {
-	}
-
-	&__info {
-		display: flex;
-		justify-content: space-between;
-	}
-
-	&__rating {
-	}
-
-	&__price {
-
-		& p{
-			margin: 0;
-			font-weight: 300;
-			font-size: 11px;
-			color: #878787;
-		}
-
-		& b{
-			font-weight: 400;
-			font-size: 17px;
-		}
-	}
-}
-
-
-
 
 .template {
 	background: #fff;
 	padding: 32px;
 	border-radius: 16px;
-}
-
-.hotel {
 }

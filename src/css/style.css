@@ -12,6 +12,7 @@ body {
 .header {
   display: flex;
   justify-content: space-between;
+  min-width: 1048px;
 }
 .header__title {
   margin: 0;
@@ -73,24 +74,28 @@ body {
   display: flex;
   flex-direction: row;
   padding: 4px 8px;
-  color: #E5E5E5;
+  color: #99A0A3;
+  line-height: 1.4285714286em;
   font-weight: 400;
   background: #FFFFFF;
   border: 1px solid #E5E5E5;
   border-radius: 4px;
 }
+.favorites__sort:hover {
+  cursor: pointer;
+}
 .arrows {
   position: relative;
   margin: auto;
-  margin-left: 8px;
+  margin-left: 9px;
 }
 
 .arrow {
   position: relative;
   width: 5px;
   height: 5px;
-  border-bottom: 2px solid #E5E5E5;
-  border-right: 2px solid #E5E5E5;
+  border-bottom: 2px solid #99A0A3;
+  border-right: 2px solid #99A0A3;
 }
 .arrow__up {
   transform: rotate(-135deg);
@@ -106,9 +111,130 @@ body {
   color: #41522E;
 }
 
+.hotel {
+  padding: 0px 0px 15px 0px;
+  margin: 16px 0px 0px 0px;
+  border-bottom: 1px solid rgba(135, 135, 135, 0.2);
+}
+.hotel:last-of-type {
+  border: 0;
+  padding: 0px 0px 0px 0px;
+}
+.hotel__title {
+  display: flex;
+  justify-content: space-between;
+}
+.hotel__name {
+  font-size: 17px;
+  font-weight: 300;
+}
+.hotel__isFavorite svg {
+  fill: white;
+  stroke: #C4C4C4;
+  stroke-linecap: round;
+  troke-linejoin: round;
+  transition: all 0.2s ease-out;
+}
+.hotel__isFavorite svg:hover {
+  fill: #e55858;
+  stroke: #e55858;
+  border: 0;
+  cursor: pointer;
+}
+.hotel__dateInfo {
+  font-weight: 400;
+  font-size: 14px;
+  color: #878787;
+}
+.hotel__date {
+  margin: 0px 0px 7px 0px;
+  color: inherit;
+  line-height: 1.2941176471em;
+}
+.hotel__info {
+  display: flex;
+  justify-content: space-between;
+}
+.hotel__rating {
+  display: flex;
+  gap: 4px;
+  align-items: end;
+}
+.hotel__rating svg {
+  fill: #6C6845;
+  fill-opacity: 0.5;
+}
+.hotel__price p {
+  margin: 0;
+  font-weight: 300;
+  font-size: 11px;
+  color: #878787;
+  line-height: 11px;
+}
+.hotel__price b {
+  margin: 0px 0px 0px 15px;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 17px;
+}
+.content__title {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 32px;
+  margin: 0px 0px 28px 0px;
+}
+.content__location {
+  display: flex;
+  flex-direction: row;
+}
+.content__location p {
+  margin: 0;
+}
+.content__arr {
+  margin: auto 20px auto 11px;
+}
+.content__arrow {
+  border-color: #A7A7A7;
+  transform: rotate(-45deg);
+  height: 13px;
+  width: 13px;
+}
+.content__date {
+  font-weight: 400;
+  font-size: 24px;
+  color: #41522E;
+  margin: auto 0;
+}
+.content__imgs {
+  margin: 0px 0px 28px 0px;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  max-width: 600px;
+  overflow: hidden;
+}
+.content__img {
+  min-height: 150px;
+  min-width: 150px;
+  border-radius: 10px;
+  background-color: #A7A7A7;
+}
+.content__favorites {
+  margin: 0px 0px 39px 0px;
+  font-weight: 300;
+  font-size: 17px;
+}
+.content__favorites span {
+  margin: auto 4px;
+  font-weight: 500;
+  font-size: 17px;
+  color: #41522E;
+}
 .container {
   margin: 0 auto;
   max-width: 1048px;
+  min-width: 1048px;
 }
 
 .column {
@@ -123,7 +249,7 @@ body {
   gap: 24px;
 }
 .column__right {
-  flex: 1 1 auto;
+  flex: 1 0 auto;
 }
 
 .btn {
@@ -135,44 +261,11 @@ body {
   border: 0;
   border-radius: 4px;
   background: linear-gradient(104.34deg, #41522E -15.34%, #BE8022 145.95%);
+  transition: all 0.2s ease-out;
 }
 .btn:hover {
   cursor: pointer;
-}
-
-.hotel {
-  padding: 0px 0px 15px 0px;
-  border-bottom: 1px solid rgba(135, 135, 135, 0.2);
-}
-.hotel__title {
-  display: flex;
-  justify-content: space-between;
-}
-.hotel__name {
-  font-size: 17px;
-  font-weight: 300;
-}
-.hotel__dateInfo {
-  font-weight: 400;
-  font-size: 14px;
-  color: #878787;
-}
-.hotel__date {
-  color: inherit;
-}
-.hotel__info {
-  display: flex;
-  justify-content: space-between;
-}
-.hotel__price p {
-  margin: 0;
-  font-weight: 300;
-  font-size: 11px;
-  color: #878787;
-}
-.hotel__price b {
-  font-weight: 400;
-  font-size: 17px;
+  opacity: 0.8;
 }
 
 .template {

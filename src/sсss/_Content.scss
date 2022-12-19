@@ -1,0 +1,90 @@
+.content {
+
+	&__title {
+		display: flex;
+		justify-content: space-between;
+
+		font-weight: 500;
+		font-size: 32px;
+		margin: 0px 0px 28px 0px;
+		
+	}
+
+	&__location {
+		display: flex;
+		flex-direction: row;
+		
+		& p{
+			margin: 0;
+		}
+	}
+
+	&__arr {
+		margin: auto 20px auto 11px;
+		
+	}
+	
+	&__arrow{
+		border-color: #A7A7A7;
+		transform: rotate(-45deg);
+		height: 13px;
+		width: 13px;
+	}
+
+	&__city {
+	}
+
+	&__date {
+		font-weight: 400;
+		font-size: 24px;
+		color: #41522E;
+		margin: auto 0;
+	}
+
+	&__imgs {
+		margin: 0px 0px 28px 0px;
+
+
+		display: flex;
+		flex-direction: row;
+		gap: 12px;
+
+		max-width: 600px;
+		// overflow: auto;
+		overflow: hidden;
+	}
+	
+	&__img {
+		
+		min-height: 150px;
+		min-width: 150px;
+		
+		border-radius: 10px;
+		background-color: #A7A7A7;
+	}
+
+	&__favorites {
+		margin: 0px 0px 39px 0px;
+
+		font-weight: 300;
+		font-size: 17px;
+
+		& span {
+			margin: auto 4px;
+			font-weight: 500;
+			font-size: 17px;
+			color: #41522E;
+		}
+	}
+
+	&__items {
+	}
+
+	&__item {
+	}
+
+	&__hotel {
+	}
+}
+
+
