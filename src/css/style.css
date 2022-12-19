@@ -84,6 +84,10 @@ body {
 .favorites__sort:hover {
   cursor: pointer;
 }
+.favorites__item {
+  margin: 16px 0px 0px 0px;
+}
+
 .arrows {
   position: relative;
   margin: auto;
@@ -113,7 +117,6 @@ body {
 
 .hotel {
   padding: 0px 0px 15px 0px;
-  margin: 16px 0px 0px 0px;
   border-bottom: 1px solid rgba(135, 135, 135, 0.2);
 }
 .hotel:last-of-type {
@@ -177,6 +180,13 @@ body {
   font-size: 17px;
   line-height: 17px;
 }
+.hotel__img {
+  margin: auto 0;
+  min-width: 64px;
+  min-height: 64px;
+  border-radius: 50%;
+}
+
 .content__title {
   display: flex;
   justify-content: space-between;
@@ -231,6 +241,17 @@ body {
   font-size: 17px;
   color: #41522E;
 }
+.content__items {
+  overflow-y: scroll;
+}
+.content__item {
+  display: flex;
+  gap: 24px;
+}
+.content__hotel {
+  flex: 1 1 auto;
+}
+
 .container {
   margin: 0 auto;
   max-width: 1048px;
