@@ -56,8 +56,8 @@ body {
 }
 
 .favorites {
-  flex: 1 0 auto;
-  margin: 0px 0px 24px 0px;
+  flex: 0 0 auto;
+  margin: 0;
 }
 .favorites__title {
   margin: 0px 0px 32px 0px;
@@ -68,7 +68,7 @@ body {
   display: flex;
   flex-direction: row;
   gap: 8px;
-  margin: 0px 0px 32px 0px;
+  margin: 0px 0px 16px 0px;
 }
 .favorites__sort {
   display: flex;
@@ -83,6 +83,9 @@ body {
 }
 .favorites__sort:hover {
   cursor: pointer;
+}
+.favorites__items {
+  max-height: 290px;
 }
 .favorites__item {
   margin: 16px 0px 0px 0px;
@@ -121,7 +124,7 @@ body {
 }
 .hotel:last-of-type {
   border: 0;
-  padding: 0px 0px 0px 0px;
+  padding-bottom: 0;
 }
 .hotel__title {
   display: flex;
@@ -145,14 +148,27 @@ body {
   cursor: pointer;
 }
 .hotel__dateInfo {
+  margin: 0px 0px 7px 0px;
+  display: flex;
+  flex-direction: row;
   font-weight: 400;
   font-size: 14px;
   color: #878787;
+  line-height: 1.2941176471em;
 }
 .hotel__date {
-  margin: 0px 0px 7px 0px;
   color: inherit;
-  line-height: 1.2941176471em;
+}
+.hotel__line {
+  position: relative;
+  margin: auto 15px;
+  background: #C4C4C4;
+  border-radius: 2px;
+  height: 1px;
+  width: 9px;
+}
+.hotel__qtyDays {
+  color: inherit;
 }
 .hotel__info {
   display: flex;
@@ -231,7 +247,7 @@ body {
   background-color: #A7A7A7;
 }
 .content__favorites {
-  margin: 0px 0px 39px 0px;
+  margin: 0px 0px 12px 0px;
   font-weight: 300;
   font-size: 17px;
 }
@@ -242,9 +258,11 @@ body {
   color: #41522E;
 }
 .content__items {
-  overflow-y: scroll;
+  max-height: 560px;
 }
 .content__item {
+  margin: 19px 0px 0px 0px;
+  padding-right: 16px;
   display: flex;
   gap: 24px;
 }
@@ -259,17 +277,20 @@ body {
 }
 
 .column {
+  margin: 0px 0px 24px 0px;
   display: flex;
   flex-direction: row;
   gap: 24px;
 }
 .column__left {
-  min-width: 360px;
   display: flex;
+  min-width: 360px;
   flex-direction: column;
   gap: 24px;
 }
 .column__right {
+  margin: 0;
+  display: flex;
   flex: 1 0 auto;
 }
 
@@ -289,6 +310,20 @@ body {
   opacity: 0.8;
 }
 
+.scrollbar {
+  overflow-y: auto;
+  padding-right: 14px;
+  margin: 0;
+}
+.scrollbar::-webkit-scrollbar {
+  width: 2px;
+  border-radius: 2px;
+  background: #E7E7E7;
+}
+.scrollbar::-webkit-scrollbar-thumb {
+  background: #41522E;
+  border-radius: 2px;
+}
 .template {
   background: #fff;
   padding: 32px;

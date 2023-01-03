@@ -13,21 +13,29 @@
 }
 
 .column {
+	margin: 0px 0px 24px 0px;
+	
 	display: flex;
 	flex-direction: row;
 	gap: 24px;
 
+	// max-height: 900px;
+	// min-height: 100vh - 90px;
+
 	&__left {
-		min-width: 360px;
 		display: flex;
+
+		min-width: 360px;
 
 		flex-direction: column;
 		gap: 24px;
 	}
 
 	&__right {
-		// display: flex;
+		margin: 0;
+		display: flex;
 		flex: 1 0 auto;
+		// height: 100%;
 	}
 }
 
@@ -47,6 +55,27 @@
 	&:hover {
 		cursor: pointer;
 		opacity: 0.8;
+	}
+}
+
+.scrollbar{
+	overflow-y: auto;
+	padding-right: 14px;
+	margin: 0;
+	
+	&::-webkit-scrollbar{
+		width: 2px;
+		
+		border-radius: 2px;
+		background:#E7E7E7;
+	}
+
+	&::-webkit-scrollbar-thumb{
+		background: #41522E;
+		border-radius: 2px;
+	}
+	&::-webkit-scrollbar-track{
+
 	}
 }
 

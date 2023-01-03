@@ -7,7 +7,7 @@
 
 	&:last-of-type{
 		border: 0;
-		padding: 0px 0px 0px 0px;
+		padding-bottom: 0;
 		
 	}
 
@@ -40,20 +40,34 @@
 	}
 
 	&__dateInfo {
+		margin: 0px 0px 7px 0px;
+
+		display: flex;
+		flex-direction: row;
+
 		font-weight: 400;
 		font-size: 14px;
 		color: #878787;
-	}
-
-	&__date {
-		margin: 0px 0px 7px 0px;
-		
-
-		color: inherit;
 		line-height: 22/17*1em;
 	}
 
+	&__date {
+		color: inherit;
+	}
+		
+	&__line{
+		position: relative;
+	
+		margin: auto 15px;
+		background: #C4C4C4;
+		border-radius: 2px;
+		height: 1px;
+		width: 9px;
+		// border: 1px solid #000;
+	}
+			
 	&__qtyDays {
+		color: inherit;
 	}
 
 	&__info {
