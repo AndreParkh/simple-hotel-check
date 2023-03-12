@@ -1,4 +1,12 @@
+$heightContent: calc(100vh - 114px);
+$constHeightZoneContent: calc(38px + 28px + 150px + 28px + 21px + 17px + 64px);
+
 .content {
+	box-sizing: border-box;
+	background-color: #000;
+	min-height: 770px;
+	height: $heightContent;
+	min-width: 600px;
 
 	&__title {
 		display: flex;
@@ -50,6 +58,7 @@
 		gap: 12px;
 
 		max-width: 600px;
+		height: 150px;
 		// overflow: auto;
 		overflow: hidden;
 	}
@@ -75,10 +84,15 @@
 			font-size: 17px;
 			color: #41522E;
 		}
+
+		& p {
+			margin: 0;
+		}
 	}
 
 	&__items {
-		max-height: 560px;
+		min-height: calc(750px - $constHeightZoneContent);
+		height: calc($heightContent - $constHeightZoneContent);
 	}
 
 	&__item {

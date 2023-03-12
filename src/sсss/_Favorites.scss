@@ -1,6 +1,13 @@
+
+$hieghtFavorites: calc(100vh - 610px);
+$constHeightFavorites: calc(64px + 30px + 32px + 30px + 16px);
+
+
 .favorites {
-	flex: 0 0 auto;
+	// flex: 0 0 auto;
 	margin: 0;
+	min-height: 273px;
+	height: $hieghtFavorites;
 	
 	&__title {
 		margin: 0px 0px 32px 0px;
@@ -37,7 +44,8 @@
 	}
 
 	&__items {
-		max-height: 290px;
+		min-height: calc(273px - $constHeightFavorites);
+		height: calc($hieghtFavorites - $constHeightFavorites);	
 	}
 
 	&__item {
