@@ -1,6 +1,7 @@
 import React from "react";
+import { addInFavorites } from "../../Redux/hotelSlice";
 
-const HotelItem = ({ withImg = false }) => {
+const HotelItem = ({ hotelItem, withImg = false }) => {
   const classNameItem = withImg
     ? "content__item hotel"
     : "favorites__item hotel";
@@ -9,7 +10,7 @@ const HotelItem = ({ withImg = false }) => {
     <div className={classNameItem}>
       {withImg && HotelImg()}
       <div className="content__hotel">
-        <HotelTitle />
+        <HotelTitle hotelItem={hotelItem} />
         <HotelDateInfo />
         <HotelInfo />
       </div>
@@ -47,7 +48,7 @@ function HotelName() {
   return <div className="hotel__name">Moscow Marriott Grand Hotel</div>;
 }
 
-function svgFavorite() {
+function svgFavorite(hotelItem) {
   return (
     <div className="hotel__isFavorite">
       <svg
@@ -55,6 +56,7 @@ function svgFavorite() {
         height="20"
         viewBox="0 0 23 20"
         xmlns="http://www.w3.org/2000/svg"
+        onClick={(e) => addHotelinFavorite(hotelItem, e)}
       >
         {/* {" "} */}
         {/* //fill="none" */}
@@ -64,11 +66,11 @@ function svgFavorite() {
   );
 }
 
-function HotelTitle() {
+function HotelTitle(hotelItem) {
   return (
     <div className="hotel__title">
       <HotelName />
-      {svgFavorite()}
+      {svgFavorite(hotelItem)}
     </div>
   );
 }
@@ -120,6 +122,11 @@ function Stars() {
     rating.push(<SvgStar key={i} />);
   }
   return rating;
+}
+
+function addHotelinFavorite(hotelItem, e) {
+  //   console.log(e);
+  addInFavorites(hotelItem);
 }
 
 export { HotelItem };

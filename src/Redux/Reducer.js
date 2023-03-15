@@ -1,10 +1,12 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import searchFormReducer from "./reducers";
+import hotelSlice from "./hotelSlice";
+import searchSlice from "./searchSlice";
 
 
 
 const rootReducer = combineReducers({
-	main: searchFormReducer
+	search: searchSlice,
+	hotels: hotelSlice
 })
 
 export const store = configureStore({

@@ -1,5 +1,6 @@
 import React from "react";
 
+import { hotelItemExample } from "../../Redux/HotelItemExample";
 import { HotelItem } from "./HotelItem";
 
 const Content = () => {
@@ -58,7 +59,9 @@ const Content = () => {
   const hotels = [];
   {
     for (let i = 0; i < 10; i++) {
-      hotels.push(<HotelItem withImg={true} key={i} />);
+      hotels.push(
+        <HotelItem hotelItem={hotelItemExample} withImg={true} key={i} />
+      );
     }
   }
 

@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setDate, setLocation, setQtyDays } from "../../Redux/actians";
+import { setDate, setLocation, setQtyDays } from "../../Redux/searchSlice";
 
 const SearchForm = () => {
-  const state = useSelector((state) => state.main.searchForm);
+  const state = useSelector((state) => state.search);
 
   const dispatch = useDispatch();
 
