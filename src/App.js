@@ -1,19 +1,22 @@
 // import './App.css';
 import React from 'react';
-import { Header } from './components/Header'
-import { FindForm } from './components/FindForm';
+import { Header } from './components/Header/Header'
+import { SearchForm } from './components/SearchForm/SearchForm';
+import { Favorites } from './components/Favorites/Favorites';
+import { Content } from './components/Content/Content';
 
 function App() {
   return (
     <div className="screen">
 		<Header/>
-		<div class="container">
-			<div class="column">
-				<div class="column__left">
-					<FindForm/>
+		<div className="container">
+			<div className="column">
+				<div className="column__left">
+					<SearchForm/>
+					<Favorites/>
 				</div>
-				<div class="column__right">
-
+				<div className="column__right">
+					<Content/>
 				</div>
 			</div>
 		</div>
