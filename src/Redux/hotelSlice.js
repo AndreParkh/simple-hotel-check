@@ -2,12 +2,12 @@ import { createSlice } from "@reduxjs/toolkit"
 
 
 const hotelSlice = createSlice({
-	name: 'hotel',
+	name: 'hotels',
 	initialState: [],
 	reducers: {
 		addInFavorites(state, action) {
-			state[0] = action.payload
-			console.log(state)
+			state.push(action.payload)
+			console.log(action.payload)
 		}
 	}
 })
@@ -15,4 +15,4 @@ const hotelSlice = createSlice({
 const {actions, reducer} = hotelSlice
 
 export const {addInFavorites} = actions
-export default reducer
+export default reducer 

@@ -6,7 +6,7 @@ import searchSlice from "./searchSlice";
 
 const rootReducer = combineReducers({
 	search: searchSlice,
-	hotels: hotelSlice
+	hotels: hotelSlice,
 })
 
 export const store = configureStore({

@@ -12,7 +12,7 @@ const searchSlice = createSlice({
 	reducers: {
 		setLocation(state, action) {
 			state.location = action.payload
-			console.log(action.payload)
+			console.log(state.location)
 			},
 		setDate(state, action) {
 			state.date = action.payload
