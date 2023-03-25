@@ -43,8 +43,8 @@ const SearchForm = () => {
           type="number"
           className="searchform__field"
           placeholder="1"
-          onChange={(e) => dispatch(setQtyDays(e.target.value))}
-          value={state.qtyDays}
+          //   onChange={(e) => dispatch(setQtyDays(e.target.value))}
+          //   value={state.qtyDays}
         />
       </div>
     );

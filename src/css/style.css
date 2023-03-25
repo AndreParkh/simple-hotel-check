@@ -143,7 +143,11 @@ body {
   troke-linejoin: round;
   transition: all 0.2s ease-out;
 }
-.hotel__isFavorite svg:hover {
+.hotel__isFavorite svg :hover {
+  fill: #EBEBEB;
+  cursor: pointer;
+}
+.hotel__isFavorite svg .isFavorite__active {
   fill: #e55858;
   stroke: #e55858;
   border: 0;

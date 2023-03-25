@@ -1,18 +1,36 @@
 import { createSlice } from "@reduxjs/toolkit"
 
+import { hotelItemExample } from "./HotelItemExample"
+
+const initialState = [ 
+	hotelItemExample,
+	// hotelItemExample,
+	// hotelItemExample,
+]
+
+// initialState[1].hotelId = 333562
+// initialState[2].hotelId = 333563
 
 const hotelSlice = createSlice({
 	name: 'hotels',
-	initialState: [],
+	initialState,
 	reducers: {
-		addInFavorites(state, action) {
+		addToFavorite(state, action) {
 			state.push(action.payload)
-			console.log(action.payload)
+		},
+		removeFromFavorite(state, action) {
+			const idList = state.map(hotel => hotel.hotelId)
+			const targetId = action.payload.hotelId
+
+			const fn = item => item.hotelId != targetId
+
+			return state = state.filter(fn)	
 		}
+
 	}
 })
 
 const {actions, reducer} = hotelSlice
 
-export const {addInFavorites} = actions
+export const {addToFavorite, removeFromFavorite } = actions
 export default reducer 

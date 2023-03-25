@@ -1,9 +1,15 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
-import { hotelItemExample } from "../../Redux/HotelItemExample";
+import { hotelItemExample, hotelList } from "../../Redux/HotelItemExample";
 import { HotelItem } from "./HotelItem";
 
 const Content = () => {
+  const favHotelList = useSelector((state) => state.hotels);
+  const idFavHotelList = favHotelList.map((hotel) => hotel.hotelId);
+  const qtyFavHotel = favHotelList.length;
+  console.log("content", idFavHotelList);
+
   //Title
   const getLocation = () => {
     return (
@@ -45,31 +51,35 @@ const Content = () => {
   };
 
   //Favorites
-  const getQtyFavotites = () => {
-    const qtyFavotites = 3;
+  const getQtyFavotites = (qtyHotels) => {
+    // const qtyFavotites = 3;
     return (
       <div className="content__favorites">
         <p>
-          Добавлено в Избранное: <span>{qtyFavotites}</span> отеля
+          Добавлено в Избранное: <span>{qtyHotels}</span> отеля
         </p>
       </div>
     );
   };
 
-  const hotels = [];
-  {
-    for (let i = 0; i < 10; i++) {
-      hotels.push(
-        <HotelItem hotelItem={hotelItemExample} withImg={true} key={i} />
-      );
-    }
-  }
+  console.log(hotelList);
+  const hotels = hotelList.map((item, idx) => {
+    const isHotelFav = idFavHotelList.includes(item.hotelId);
+    console.log(idx, item, isHotelFav);
+    return (
+      <HotelItem hotel={item} withImg={true} isFav={isHotelFav} key={idx} />
+    );
+  });
+  //   {
+  //   for (let i = 0; i < 10; i++) {
+  //     hotels.push(<HotelItem hotel={hotelList} withImg={true} key={i} />);
+  //   }
 
   return (
     <div className="template content">
       {getTitle()}
       {getImages()}
-      {getQtyFavotites()}
+      {getQtyFavotites(qtyFavHotel)}
       <div className="content__items scrollbar">{hotels}</div>
     </div>
   );

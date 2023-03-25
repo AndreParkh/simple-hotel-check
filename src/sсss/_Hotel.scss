@@ -30,14 +30,29 @@
 
 			transition: all 0.2s ease-out;
 
-			&:hover{
+			// &:active{
+			// 	fill: #e55858;
+			// 	stroke: #e55858;
+			// 	border: 0;
+			// 	cursor: pointer;
+			// }
+
+			& 	:hover {
+				fill: #EBEBEB;
+				cursor: pointer;
+			}
+			
+			&  .isFavorite__active {
 				fill: #e55858;
 				stroke: #e55858;
 				border: 0;
 				cursor: pointer;
 			}
+
 		}
+
 	}
+
 
 	&__dateInfo {
 		margin: 0px 0px 7px 0px;
