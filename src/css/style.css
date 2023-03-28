@@ -23,6 +23,7 @@ body {
 .header__logout {
   margin: auto 0;
   padding-right: 36px;
+  cursor: pointer;
 }
 
 .logout__text {
@@ -185,7 +186,11 @@ body {
   gap: 4px;
   align-items: end;
 }
-.hotel__rating svg {
+.hotel__rating .rating_fill {
+  fill: #CDBC1E;
+  fill-opacity: 1;
+}
+.hotel__rating .rating_noFill {
   fill: #6C6845;
   fill-opacity: 0.5;
 }

@@ -68,11 +68,12 @@
 
 	&__date {
 		color: inherit;
+
 	}
-		
+	
 	&__line{
 		position: relative;
-	
+		
 		margin: auto 15px;
 		background: #C4C4C4;
 		border-radius: 2px;
@@ -80,24 +81,30 @@
 		width: 9px;
 		// border: 1px solid #000;
 	}
-			
+	
 	&__qtyDays {
 		color: inherit;
 	}
-
+	
 	&__info {
 		display: flex;
 		justify-content: space-between;
-		
 	}
 	
 	&__rating {
 		display: flex; 
 		gap: 4px;
 		align-items: end;
-		& svg{
+
+		.rating_fill{
+			fill:#CDBC1E;
+			fill-opacity:1
+			
+		}
+
+		.rating_noFill{
 			fill:#6C6845;
-			fill-opacity:0.5
+			fill-opacity: 0.5;
 		}
 	}
 

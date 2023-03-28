@@ -8,10 +8,10 @@ const Content = () => {
   const favHotelList = useSelector((state) => state.hotels);
   const idFavHotelList = favHotelList.map((hotel) => hotel.hotelId);
   const qtyFavHotel = favHotelList.length;
-  console.log("content", idFavHotelList);
+  //   console.log("content", idFavHotelList);
 
   //Title
-  const getLocation = () => {
+  const showLocation = () => {
     return (
       <div className="content__location">
         <p>Отели</p>
@@ -23,21 +23,21 @@ const Content = () => {
     );
   };
 
-  const getDate = () => {
+  const showDate = () => {
     return <div className="content__date">07 июля 2020</div>;
   };
 
-  const getTitle = () => {
+  const showTitle = () => {
     return (
       <div className="content__title">
-        {getLocation()}
-        {getDate()}
+        {showLocation()}
+        {showDate()}
       </div>
     );
   };
 
   //Images
-  const getImages = () => {
+  const showImages = () => {
     const images = [null, null, null, null];
     return (
       <div className="content__imgs">
@@ -51,8 +51,7 @@ const Content = () => {
   };
 
   //Favorites
-  const getQtyFavotites = (qtyHotels) => {
-    // const qtyFavotites = 3;
+  const showQtyFavotites = (qtyHotels) => {
     return (
       <div className="content__favorites">
         <p>
@@ -65,9 +64,9 @@ const Content = () => {
   console.log(hotelList);
   const hotels = hotelList.map((item, idx) => {
     const isHotelFav = idFavHotelList.includes(item.hotelId);
-    console.log(idx, item, isHotelFav);
+    // console.log(idx, item, isHotelFav);
     return (
-      <HotelItem hotel={item} withImg={true} isFav={isHotelFav} key={idx} />
+      <HotelItem hotel={item} withIcon={true} isFav={isHotelFav} key={idx} />
     );
   });
   //   {
@@ -77,12 +76,12 @@ const Content = () => {
 
   return (
     <div className="template content">
-      {getTitle()}
-      {getImages()}
-      {getQtyFavotites(qtyFavHotel)}
+      {showTitle()}
+      {showImages()}
+      {showQtyFavotites(qtyFavHotel)}
       <div className="content__items scrollbar">{hotels}</div>
     </div>
   );
 };
 
-export { Content };
+export default Content;

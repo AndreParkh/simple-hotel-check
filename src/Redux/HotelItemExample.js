@@ -18,10 +18,10 @@ const hotelItemExample = {
 	  "99":120128.17
 	},
 	"hotelName":"Mercure Arbat Moscow",
-	"stars":4,
+	"stars":5,
 	"locationId":12153,
 	"hotelId":333561,
-	"priceFrom":28863.56
+	"priceFrom":23863.56
  }
 const hotelItemExample2 = {
 	"location":{
@@ -46,7 +46,7 @@ const hotelItemExample2 = {
 	"stars":4,
 	"locationId":12153,
 	"hotelId":333562,
-	"priceFrom":28863.56
+	"priceFrom":15863.56
  }
 const hotelItemExample3 = {
 	"location":{
@@ -68,7 +68,7 @@ const hotelItemExample3 = {
 	  "99":120128.17
 	},
 	"hotelName":"Mercure Arbat 3",
-	"stars":4,
+	"stars":3,
 	"locationId":12153,
 	"hotelId":333563,
 	"priceFrom":28863.56
