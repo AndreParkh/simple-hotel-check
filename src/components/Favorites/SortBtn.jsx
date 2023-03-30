@@ -1,12 +1,12 @@
 import React from "react";
 import cn from "classnames";
 
-const SortBtn = ({ text, isActive, reverse, onClick }) => {
+const SortBtn = ({ text, isActive, isReverse, onClick }) => {
   // sortMethod =
   const cnSortIsActive = cn("favorites__sort", { sortActive: isActive });
-  const cnArrowUp = cn("arrow__up arrow", { sortActive: isActive && reverse });
+  const cnArrowUp = cn("arrow__up arrow", { sortActive: isActive && isReverse });
   const cnArrowDown = cn("arrow__down arrow", {
-    sortActive: isActive && !reverse,
+    sortActive: isActive && !isReverse,
   });
   return (
     <button className={cnSortIsActive} onClick={() => onClick()}>

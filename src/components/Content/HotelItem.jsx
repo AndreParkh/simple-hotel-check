@@ -3,8 +3,9 @@ import cn from "classnames";
 
 import { useDispatch } from "react-redux";
 import { addToFavorite, removeFromFavorite } from "../../Redux/hotelSlice";
+import { formatPrice } from "../../PureFunctions/pureFunctions";
 
-const HotelItem = ({ hotel, withIcon = false, isFav }) => {
+const HotelItem = ({ hotel, withIcon = false, isFav, date }) => {
   const dispatch = useDispatch();
 
   const { hotelName, priceFrom, stars } = hotel;
@@ -79,10 +80,10 @@ const HotelItem = ({ hotel, withIcon = false, isFav }) => {
   };
 
   //Date info
-  const DateInfo = () => {
+  const DateInfo = ({checkInDate}) => {
     return (
       <div className="hotel__dateInfo">
-        <div className="hotel__date">28 June, 2020</div>
+        <div className="hotel__date">{checkInDate}</div>
         <div className="hotel__line"></div>
         <div className="hotel__qtyDays">1 день</div>
       </div>
@@ -91,9 +92,10 @@ const HotelItem = ({ hotel, withIcon = false, isFav }) => {
 
   // Info
   const Info = ({ price }) => {
-    const formatPrice = (num) =>
-      `${Math.floor(num / 1000)} ${Math.floor(num % 1000)}`;
+    // const formatPrice = (num) =>
+    //   `${Math.floor(num / 1000)} ${Math.floor(num % 1000)}`;
 
+    
     //Stars
     const SvgStar = ({ isfill }) => {
       return (
@@ -136,11 +138,11 @@ const HotelItem = ({ hotel, withIcon = false, isFav }) => {
       {withIcon && Icon()}
       <div className="content__hotel">
         <Title name={hotelName} />
-        <DateInfo />
+        <DateInfo checkInDate={date}/>
         <Info price={priceFrom} />
       </div>
     </div>
   );
 };
 
-export { HotelItem };
+export default HotelItem ;

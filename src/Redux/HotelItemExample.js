@@ -84,5 +84,4 @@ const hotelList = [
 // 	hotelList.push(hotelItemExample)
 // }
 
-
 export { hotelItemExample, hotelList}

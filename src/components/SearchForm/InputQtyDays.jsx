@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setQtyDays } from "../../Redux/searchSlice";
+import { getQtyDays } from "../../Redux/searchSlice";
 
 const InputQtyDays = () => {
   const dispatch = useDispatch();
@@ -12,7 +12,7 @@ const InputQtyDays = () => {
         type="number"
         className="searchform__field"
         placeholder="1"
-        onChange={(e) => dispatch(setQtyDays(e.target.value))}
+        onChange={(e) => dispatch(getQtyDays(e.target.value))}
         value={state.qtyDays}
       />
     </div>

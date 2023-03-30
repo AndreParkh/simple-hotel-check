@@ -8,9 +8,6 @@ const initialState = [
 	// hotelItemExample,
 ]
 
-// initialState[1].hotelId = 333562
-// initialState[2].hotelId = 333563
-
 const hotelSlice = createSlice({
 	name: 'hotels',
 	initialState,
@@ -19,15 +16,14 @@ const hotelSlice = createSlice({
 			state.push(action.payload)
 		},
 		removeFromFavorite(state, action) {
-			const idList = state.map(hotel => hotel.hotelId)
 			const targetId = action.payload.hotelId
 
-			const fn = item => item.hotelId != targetId
+			const fn = item => item.hotelId !== targetId
 
-			return state = state.filter(fn)	
+			return state.filter(fn)	
 		},
 		sortByRating(state) {
-			return state.sort((a, b) => b.stars - a.stars)
+			return state.sort((a, b) => a.stars - b.stars)
 		},
 		reverseSortByRating(state, action) {
 			if (action.payload) {
@@ -36,7 +32,7 @@ const hotelSlice = createSlice({
 			return state.sort((a, b) => b.stars - a.stars)
 		},
 		sortByCost(state) {
-			return state.sort((a, b) => b.priceFrom - a.priceFrom)
+			return state.sort((a, b) => a.priceFrom - b.priceFrom)
 		},
 		reverseSortByCost(state, action) {
 			if (action.payload) {
@@ -54,8 +50,8 @@ export const {
 	addToFavorite, 
 	removeFromFavorite, 
 	sortByRating,
-	reverseSortByRating,
 	sortByCost,
+	reverseSortByRating,
 	reverseSortByCost 
 } = actions
 

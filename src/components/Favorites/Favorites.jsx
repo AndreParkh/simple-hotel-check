@@ -1,11 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { HotelItem } from "../Content/HotelItem";
+
+import HotelItem from "../Content/HotelItem";
 import SortBtn from "./SortBtn";
-import { hotelItemExample } from "../../Redux/HotelItemExample";
+
 import {
   sortByRating,
+  sortByCost,
   reverseSortByRating,
   reverseSortByCost,
 } from "../../Redux/hotelSlice";
@@ -14,36 +16,39 @@ const Favorites = () => {
   const dispatch = useDispatch();
   const allFavHotels = useSelector((state) => state.hotels);
 
-  const [isSortRating, toggleSortRating] = useState(true);
   const [isSortCost, toggleSortCost] = useState(false);
-  const [sortReverse, toggleSortReverse] = useState(false);
+  const [isSortRating, toggleSortRating] = useState(true);
+  const [isReverseSort, toggleSortReverse] = useState(true);
 
   //Происход обшика при переключении метода сортировки
-  const setSortingRating = () => {
+  const setSortingByRating = () => {
     if (!isSortRating) {
       toggleSortRating(true);
+
+      toggleSortReverse(false)
       toggleSortCost(false);
 
       dispatch(sortByRating());
       return;
     }
-    // allFavHotels.sort((a, b) => a.stars - b.stars)
 
-    dispatch(reverseSortByRating(sortReverse));
-    toggleSortReverse(!sortReverse);
+    dispatch(reverseSortByRating(isReverseSort));
+    toggleSortReverse(!isReverseSort);
   };
 
-  const sortByCost = () => {
+  const setSortingByCost = () => {
     if (!isSortCost) {
-      toggleSortRating(false);
       toggleSortCost(true);
+      
+      toggleSortReverse(false)
+      toggleSortRating(false);
 
       dispatch(sortByCost());
       return;
     }
 
-    dispatch(reverseSortByCost(sortReverse));
-    toggleSortReverse(!sortReverse);
+    toggleSortReverse(!isReverseSort);
+    dispatch(reverseSortByCost(isReverseSort));
   };
 
   return (
@@ -53,14 +58,14 @@ const Favorites = () => {
         <SortBtn
           text={"Рейтинг"}
           isActive={isSortRating}
-          reverse={sortReverse}
-          onClick={setSortingRating}
+          isReverse={isReverseSort}
+          onClick={setSortingByRating}
         />
         <SortBtn
           text={"Цена"}
           isActive={isSortCost}
-          reverse={sortReverse}
-          onClick={sortByCost}
+          isReverse={isReverseSort}
+          onClick={setSortingByCost}
         />
       </div>
       {!allFavHotels.length && <div>Добавьте отель в избранное</div>}

@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setLocation } from "../../Redux/searchSlice";
+import { getLocation } from "../../Redux/searchSlice";
 
 const InpuLocation = () => {
   const state = useSelector((state) => state.search);
@@ -13,7 +13,7 @@ const InpuLocation = () => {
         type="text"
         className="searchform__field"
         placeholder="Москва"
-        onChange={(e) => dispatch(setLocation(e.target.value))}
+        onChange={(e) => dispatch(getLocation(e.target.value))}
         value={state.location}
       />
     </div>

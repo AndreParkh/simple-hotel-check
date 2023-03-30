@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setDate } from "../../Redux/searchSlice";
+import { getDate } from "../../Redux/searchSlice";
 
 const InputDate = () => {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ const InputDate = () => {
       <input
         type="date"
         className="searchform__field"
-        onChange={(e) => dispatch(setDate(e.target.value))}
+        onChange={(e) => dispatch(getDate(e.target.value))}
         value={state.date}
       />
     </div>
