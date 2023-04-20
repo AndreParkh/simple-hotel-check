@@ -7,10 +7,13 @@ const InputDate = () => {
 
   return (
     <div className="searchform__item">
-      <div className="searchform__title">Дата заселения</div>
+      <label className="searchform__title" htmlFor="searchDate">
+        Дата заселения
+      </label>
       <input
         type="date"
         className="searchform__field"
+        id="searchDate"
         onChange={(e) => dispatch(getDate(e.target.value))}
         value={state.date}
       />

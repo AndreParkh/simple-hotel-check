@@ -31,8 +31,8 @@ const generateRequest = (checkInDate, checkOutDate, location) => {
 
 const formatPrice = (num) => {
 	const thousand = Math.floor(num / 1000)
-	const unit = Math.floor(num % 1000)
-	return `${thousand} ${('00' + unit).slice(-3)}`;
+	const units = Math.floor(num % 1000)
+	return `${thousand} ${('00' + units).slice(-3)}`;
 }
 
 const formatDate = (strDate) => {

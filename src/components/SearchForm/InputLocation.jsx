@@ -8,11 +8,14 @@ const InpuLocation = () => {
 
   return (
     <div className="searchform__item">
-      <div className="searchform__title">Локация</div>
+      <label className="searchform__title" htmlFor="searchLocation">
+        Локация
+      </label>
       <input
         type="text"
         className="searchform__field"
         placeholder="Москва"
+        id="searchLocation"
         onChange={(e) => dispatch(getLocation(e.target.value))}
         value={state.location}
       />

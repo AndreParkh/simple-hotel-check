@@ -7,11 +7,14 @@ const InputQtyDays = () => {
 
   return (
     <div className="searchform__item">
-      <div className="searchform__title">Количество дней</div>
+      <label className="searchform__title" htmlFor="searchQtyDays">
+        Количество дней
+      </label>
       <input
         type="number"
         className="searchform__field"
         placeholder="1"
+        id="searchQtyDays"
         onChange={(e) => dispatch(getQtyDays(e.target.value))}
         value={state.qtyDays}
       />

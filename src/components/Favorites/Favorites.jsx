@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import HotelItem from "../Content/HotelItem";
+import HotelItem from "../HotelItem/HotelItem";
 import SortBtn from "./SortBtn";
 
 import {
@@ -18,37 +18,39 @@ const Favorites = () => {
 
   const [isSortCost, toggleSortCost] = useState(false);
   const [isSortRating, toggleSortRating] = useState(true);
-  const [isReverseSort, toggleSortReverse] = useState(true);
+  const [isReverseSort, toggleSortReverse] = useState(false);
 
   //Происход обшика при переключении метода сортировки
   const setSortingByRating = () => {
     if (!isSortRating) {
       toggleSortRating(true);
-
-      toggleSortReverse(false)
       toggleSortCost(false);
+    }
 
-      dispatch(sortByRating());
+    if (isSortRating && !isReverseSort) {
+      toggleSortReverse(true);
+      dispatch(reverseSortByRating());
       return;
     }
 
-    dispatch(reverseSortByRating(isReverseSort));
-    toggleSortReverse(!isReverseSort);
+    toggleSortReverse(false);
+    dispatch(sortByRating());
   };
 
   const setSortingByCost = () => {
     if (!isSortCost) {
       toggleSortCost(true);
-      
-      toggleSortReverse(false)
       toggleSortRating(false);
+    }
 
-      dispatch(sortByCost());
+    if (isSortCost && !isReverseSort) {
+      toggleSortReverse(true);
+      dispatch(reverseSortByCost());
       return;
     }
 
-    toggleSortReverse(!isReverseSort);
-    dispatch(reverseSortByCost(isReverseSort));
+    toggleSortReverse(false);
+    dispatch(sortByCost());
   };
 
   return (

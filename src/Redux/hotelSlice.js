@@ -15,30 +15,28 @@ const hotelSlice = createSlice({
 		addToFavorite(state, action) {
 			state.push(action.payload)
 		},
+
 		removeFromFavorite(state, action) {
 			const targetId = action.payload.hotelId
-
 			const fn = item => item.hotelId !== targetId
 
-			return state.filter(fn)	
+			return state.filter(fn)
 		},
+		
 		sortByRating(state) {
-			return state.sort((a, b) => a.stars - b.stars)
-		},
-		reverseSortByRating(state, action) {
-			if (action.payload) {
-				return state.sort((a, b) => a.stars - b.stars)
-			}
 			return state.sort((a, b) => b.stars - a.stars)
 		},
-		sortByCost(state) {
-			return state.sort((a, b) => a.priceFrom - b.priceFrom)
+
+		reverseSortByRating(state) {
+			return state.sort((a, b) => a.stars - b.stars)
 		},
-		reverseSortByCost(state, action) {
-			if (action.payload) {
-				return state.sort((a, b) => a.priceFrom - b.priceFrom)
-			}
+
+		sortByCost(state) {
 			return state.sort((a, b) => b.priceFrom - a.priceFrom)
+		},
+
+		reverseSortByCost(state) {
+			return state.sort((a, b) => a.priceFrom - b.priceFrom)
 		}
 
 	}

@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 // import { hotelList } from "../../Redux/HotelItemExample";
-import HotelItem from "./HotelItem";
+import HotelItem from "../HotelItem/HotelItem";
 import Title from "./Title";
 
 import { formatDate } from "../../PureFunctions/pureFunctions";
@@ -12,8 +12,7 @@ const Content = ({ hotelList, location, checkIn }) => {
   const idFavHotelList = favHotelList.map((hotel) => hotel.hotelId);
   const qtyFavHotel = favHotelList.length;
   //   console.log("content", idFavHotelList);
-  const formatedCheckIn = formatDate(checkIn)
-
+  const formatedCheckIn = formatDate(checkIn);
 
   //Images
   const showImages = () => {
@@ -40,19 +39,20 @@ const Content = ({ hotelList, location, checkIn }) => {
     );
   };
 
-  console.log('content',hotelList);
+  console.log("content", hotelList);
 
   const hotels = hotelList.map((item, idx) => {
     const isHotelFav = idFavHotelList.includes(item.hotelId);
     // console.log(idx, item, isHotelFav);
     return (
-      <HotelItem 
-        hotel={item} 
-        withIcon={true} 
+      <HotelItem
+        hotel={item}
+        withIcon={true}
         isFav={isHotelFav}
         date={formatedCheckIn}
         // qtyDays={qtyDays}
-        key={idx} />
+        key={idx}
+      />
     );
   });
   //   {
