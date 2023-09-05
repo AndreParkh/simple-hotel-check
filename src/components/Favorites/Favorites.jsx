@@ -73,7 +73,13 @@ const Favorites = () => {
       {!allFavHotels.length && <div>Добавьте отель в избранное</div>}
       <div className="favorites__items scrollbar">
         {allFavHotels.map((hotel, idx) => (
-          <HotelItem hotel={hotel} isFav={true} key={idx} />
+          <HotelItem
+            hotel={hotel.hotel}
+            isFav={true}
+            key={idx}
+            date={hotel.date}
+            qtyDays={hotel.qtyDays}
+          />
         ))}
       </div>
     </div>

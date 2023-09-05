@@ -1,15 +1,23 @@
 import React from "react";
 import cn from "classnames";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToFavorite, removeFromFavorite } from "../../Redux/hotelSlice";
-import { formatPrice } from "../../PureFunctions/pureFunctions";
+import { formatDate, formatPrice } from "../../PureFunctions/pureFunctions";
 
-const HotelItem = ({ hotel, withIcon = false, isFav, date }) => {
+const HotelItem = ({
+  hotel,
+  withIcon = false,
+  isFav,
+  date = "",
+  qtyDays = 0,
+}) => {
   const dispatch = useDispatch();
+  const searchState = useSelector((state) => state.search);
+  const favHotels = useSelector((state) => state.hotels);
 
+  const formatedCheckIn = formatDate(searchState.date);
   const { hotelName, priceFrom, stars } = hotel;
-
   const classNameItem = cn({
     "content__item hotel": withIcon,
     "favorites__item hotel": !withIcon,
@@ -23,7 +31,13 @@ const HotelItem = ({ hotel, withIcon = false, isFav, date }) => {
         className="hotel__isFavorite"
         onClick={() => {
           if (!isFav) {
-            dispatch(addToFavorite(hotel));
+            dispatch(
+              addToFavorite({
+                hotel,
+                date: formatedCheckIn,
+                qtyDays: searchState.qtyDays,
+              })
+            );
             return;
           }
           dispatch(removeFromFavorite(hotel));
@@ -80,12 +94,14 @@ const HotelItem = ({ hotel, withIcon = false, isFav, date }) => {
   };
 
   //Date info
-  const DateInfo = ({checkInDate}) => {
+  const DateInfo = ({ checkInDate }) => {
     return (
       <div className="hotel__dateInfo">
-        <div className="hotel__date">{checkInDate}</div>
+        <div className="hotel__date">{withIcon ? checkInDate : date}</div>
         <div className="hotel__line"></div>
-        <div className="hotel__qtyDays">1 день</div>
+        <div className="hotel__qtyDays">
+          {withIcon ? searchState.qtyDays : qtyDays} день
+        </div>
       </div>
     );
   };
@@ -95,7 +111,6 @@ const HotelItem = ({ hotel, withIcon = false, isFav, date }) => {
     // const formatPrice = (num) =>
     //   `${Math.floor(num / 1000)} ${Math.floor(num % 1000)}`;
 
-    
     //Stars
     const SvgStar = ({ isfill }) => {
       return (
@@ -138,11 +153,11 @@ const HotelItem = ({ hotel, withIcon = false, isFav, date }) => {
       {withIcon && Icon()}
       <div className="content__hotel">
         <Title name={hotelName} />
-        <DateInfo checkInDate={date}/>
+        <DateInfo checkInDate={formatedCheckIn} />
         <Info price={priceFrom} />
       </div>
     </div>
   );
 };
 
-export default HotelItem ;
+export default HotelItem;

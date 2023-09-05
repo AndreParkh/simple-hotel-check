@@ -1,51 +1,77 @@
-import InputDate from "./InputDate";
-import InputLocation from "./InputLocation";
-import InputQtyDays from "./InputQtyDays";
 import {
   calcCheckOutDate,
   generateRequest,
 } from "../../PureFunctions/pureFunctions";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useEffect } from "react";
+import { getDate, getLocation, getQtyDays } from "../../Redux/searchSlice";
+import InputItem from "./InputItem";
+import { useState } from "react";
 
 const SearchForm = ({ getHotelList }) => {
-  const state = useSelector((state) => state.search);
+  const dispatch = useDispatch();
+  //   const state = useSelector((state) => state.search);
+  const [searchLocation, setSearchLocation] = useState("Москва");
+  const [searchDate, setSearchDate] = useState("2023-09-28");
+  const [searchQtyDays, setSearchQtyDays] = useState(1);
 
-  const { date, qtyDays, location } = state;
-  console.log(state);
-
+  let json;
   async function fetchRequest(checkIn, qtyDays, location, event) {
     const checkOut = calcCheckOutDate(checkIn, qtyDays);
     const request = generateRequest(checkIn, checkOut, location);
     if (event) event.preventDefault();
-    let response = await fetch(request);
-    let json;
 
-    console.log(response);
+    dispatch(getLocation(location));
+    dispatch(getDate(checkIn));
+    dispatch(getQtyDays(qtyDays));
+
+    console.log("fetchRequst request", request);
+    let response = await fetch(request);
+
+    console.log("fetchRequst response", response);
     if (response.ok) {
       // если HTTP-статус в диапазоне 200-299
-      // получаем тело ответа (см. про этот метод ниже)
+      // получаем тело ответа
       json = await response.json();
     } else {
       alert("Ошибка HTTP: " + response.status);
     }
     getHotelList(json, location, checkIn);
 
-    console.log(json);
-
-    return json;
+    console.log("fetchRequst json", json);
   }
 
-  useEffect(() => fetchRequest(date, qtyDays, location), []);
+  useEffect(() => fetchRequest(searchDate, searchQtyDays, searchLocation), []);
 
   return (
     <form className="template searchform">
-      <InputLocation />
-      <InputDate />
-      <InputQtyDays />
+      <InputItem
+        label="Локация"
+        id="searchLocation"
+        type="text"
+        state={searchLocation}
+        setState={(e) => setSearchLocation(e.target.value)} //{(e) => dispatch(getLocation(e.target.value))}
+      />
+      <InputItem
+        label="Дата заселения"
+        id="searchDate"
+        type="date"
+        state={searchDate}
+        setState={(e) => setSearchDate(e.target.value)} //{(e) => dispatch(getDate(e.target.value))}
+      />
+      <InputItem
+        label="Количество дней"
+        id="searchQtyDays"
+        type="number"
+        state={searchQtyDays}
+        setState={(e) => setSearchQtyDays(e.target.value)} //{(e) => dispatch(getQtyDays(e.target.value))}
+      />
+
       <button
         className="searchform__btn btn"
-        onClick={(e) => fetchRequest(date, qtyDays, location, e)}
+        onClick={(e) =>
+          fetchRequest(searchDate, searchQtyDays, searchLocation, e)
+        }
       >
         Найти
       </button>

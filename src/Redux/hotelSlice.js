@@ -3,7 +3,11 @@ import { createSlice } from "@reduxjs/toolkit"
 import { hotelItemExample } from "./HotelItemExample"
 
 const initialState = [ 
-	hotelItemExample,
+	{
+		hotel: hotelItemExample,
+		date: '02-09-2023',
+		qtyDays: 2
+	},
 	// hotelItemExample,
 	// hotelItemExample,
 ]
@@ -13,12 +17,18 @@ const hotelSlice = createSlice({
 	initialState,
 	reducers: {
 		addToFavorite(state, action) {
-			state.push(action.payload)
+			// action.payload.hotel.date = action.payload.date
+			// action.payload.hotel.qtyDays = action.payload.qtyDays
+			state.push({
+				hotel: action.payload.hotel,
+				date: action.payload.date,
+				qtyDays: action.payload.qtyDays
+			})
 		},
 
 		removeFromFavorite(state, action) {
 			const targetId = action.payload.hotelId
-			const fn = item => item.hotelId !== targetId
+			const fn = item => item.hotel.hotelId !== targetId
 
 			return state.filter(fn)
 		},

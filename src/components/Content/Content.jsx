@@ -1,21 +1,19 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-// import { hotelList } from "../../Redux/HotelItemExample";
 import HotelItem from "../HotelItem/HotelItem";
 import Title from "./Title";
+import { isDeepEqual } from "../../PureFunctions/pureFunctions";
 
-import { formatDate } from "../../PureFunctions/pureFunctions";
-
-const Content = ({ hotelList, location, checkIn }) => {
+const Content = ({ hotelList }) => {
   const favHotelList = useSelector((state) => state.hotels);
-  const idFavHotelList = favHotelList.map((hotel) => hotel.hotelId);
+  const idFavHotelList = favHotelList.map(
+    (hotelInfo) => hotelInfo.hotel.hotelId
+  );
   const qtyFavHotel = favHotelList.length;
-  //   console.log("content", idFavHotelList);
-  const formatedCheckIn = formatDate(checkIn);
 
   //Images
-  const showImages = () => {
+  const Images = () => {
     const images = [null, null, null, null];
     return (
       <div className="content__imgs">
@@ -29,11 +27,11 @@ const Content = ({ hotelList, location, checkIn }) => {
   };
 
   //Favorites
-  const showQtyFavotites = (qtyHotels) => {
+  const QtyFavotites = ({ qty }) => {
     return (
       <div className="content__favorites">
         <p>
-          Добавлено в Избранное: <span>{qtyHotels}</span> отеля
+          Добавлено в Избранное: <span>{qty}</span> отеля
         </p>
       </div>
     );
@@ -43,28 +41,23 @@ const Content = ({ hotelList, location, checkIn }) => {
 
   const hotels = hotelList.map((item, idx) => {
     const isHotelFav = idFavHotelList.includes(item.hotelId);
-    // console.log(idx, item, isHotelFav);
+    // if (isHotelFav) {
+    //   const mbHotelFav = favHotelList.find(
+    //     (hotelInfo) => hotelInfo.hotel.hotelId === item.hotelId
+    //   );
+    //   debugger;
+    //   isHotelFav = isDeepEqual(mbHotelFav.hotel, item);
+    // }
     return (
-      <HotelItem
-        hotel={item}
-        withIcon={true}
-        isFav={isHotelFav}
-        date={formatedCheckIn}
-        // qtyDays={qtyDays}
-        key={idx}
-      />
+      <HotelItem hotel={item} withIcon={true} isFav={isHotelFav} key={idx} />
     );
   });
-  //   {
-  //   for (let i = 0; i < 10; i++) {
-  //     hotels.push(<HotelItem hotel={hotelList} withImg={true} key={i} />);
-  //   }
 
   return (
     <div className="template content">
-      <Title location={location} checkIn={checkIn} />
-      {showImages()}
-      {showQtyFavotites(qtyFavHotel)}
+      <Title />
+      <Images />
+      <QtyFavotites qty={qtyFavHotel} />
       <div className="content__items scrollbar">{hotels}</div>
     </div>
   );

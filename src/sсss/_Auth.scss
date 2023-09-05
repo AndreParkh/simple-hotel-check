@@ -1,0 +1,36 @@
+.auth{
+	position: relative;
+	
+	&::before {
+		content: '';
+		position: absolute;
+		left: 0; right: 0; 
+		top: 0; bottom: 0;
+		filter: blur(10px);
+		// background-color: ;
+		z-index: -1;
+		background: no-repeat center;
+		background-size: cover;
+		background-image: url('../svg/bg-image.svg');
+	}
+
+
+	&__container {
+		margin: auto;
+		display: flex;
+		flex-direction: column; 
+		
+		justify-content: center;
+		
+		width: 409px;
+		height: 100vh;
+		
+	}
+
+	&__header {
+		margin: 0 0 32px 0;
+
+		font-size: 24px;
+		text-align: center;
+	}
+}

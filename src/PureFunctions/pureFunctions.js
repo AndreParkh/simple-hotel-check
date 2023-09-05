@@ -11,17 +11,13 @@
 // }
 
 const calcCheckOutDate = (checkIn, qtyDays) => {
-	let checkOutDate = new Date()
 	const checkInDate = new Date(checkIn)
-	
-	console.log(checkInDate)
+	const checkOutDate = new Date(checkInDate)
+	checkOutDate.setDate(checkOutDate.getDate() + Number(qtyDays))
 
-	checkOutDate.setDate(checkInDate.getDate() + Number(qtyDays))
-	
 	const day = checkOutDate.getDate()
 	const month = checkOutDate.getMonth() + 1 	//Отчет начинается с 0 
 	const year = checkOutDate.getFullYear()
-	
 	return `${year}-${('0' + month).slice(-2)}-${('0' + day).slice(-2)}`
 }
 
@@ -43,6 +39,32 @@ const formatDate = (strDate) => {
 
 	return `${day} ${month} ${year}`
 }
+
+const isObject = (object) => {
+	return object != null && typeof object === "object";
+  };
+
+const isDeepEqual = (object1, object2) => {
+
+	const objKeys1 = Object.keys(object1);
+	const objKeys2 = Object.keys(object2);
+  
+	if (objKeys1.length !== objKeys2.length) return false;
+  
+	for (var key of objKeys1) {
+	  const value1 = object1[key];
+	  const value2 = object2[key];
+  
+	  const isObjects = isObject(value1) && isObject(value2);
+  
+	  if ((isObjects && !isDeepEqual(value1, value2)) ||
+		(!isObjects && value1 !== value2)
+	  ) {
+		return false;
+	  }
+	}
+	return true;
+  };
 	
 
-export { calcCheckOutDate, generateRequest, formatPrice, formatDate }
+export { calcCheckOutDate, generateRequest, formatPrice, formatDate, isDeepEqual }
