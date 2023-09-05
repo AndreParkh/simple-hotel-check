@@ -40,14 +40,25 @@ const Content = ({ hotelList }) => {
   console.log("content", hotelList);
 
   const hotels = hotelList.map((item, idx) => {
-    const isHotelFav = idFavHotelList.includes(item.hotelId);
-    // if (isHotelFav) {
-    //   const mbHotelFav = favHotelList.find(
-    //     (hotelInfo) => hotelInfo.hotel.hotelId === item.hotelId
-    //   );
-    //   debugger;
-    //   isHotelFav = isDeepEqual(mbHotelFav.hotel, item);
-    // }
+    let isHotelFav = idFavHotelList.includes(item.hotelId);
+    if (isHotelFav) {
+      for (let i = 0; i < favHotelList.length; i++) {
+        if (favHotelList[i].hotel.hotelId === item.hotelId) {
+          isHotelFav = isDeepEqual(favHotelList[i].hotel, item);
+          if (isHotelFav) {
+            break;
+          }
+        }
+      }
+
+      //   const allPotEquelHotelFav = favHotelList.findAll(
+      //     (hotelInfo) => hotelInfo.hotel.hotelId === item.hotelId
+      //   );
+      //   allPotEquelHotelFav.map((favHotelItem) => {
+      //     if (isHotelFav) return;
+      //   });
+    }
+
     return (
       <HotelItem hotel={item} withIcon={true} isFav={isHotelFav} key={idx} />
     );

@@ -34,19 +34,19 @@ const hotelSlice = createSlice({
 		},
 		
 		sortByRating(state) {
-			return state.sort((a, b) => b.stars - a.stars)
+			return state.sort((a, b) => b.hotel.stars - a.hotel.stars)
 		},
 
 		reverseSortByRating(state) {
-			return state.sort((a, b) => a.stars - b.stars)
+			return state.sort((a, b) => a.hotel.stars - b.hotel.stars)
 		},
 
 		sortByCost(state) {
-			return state.sort((a, b) => b.priceFrom - a.priceFrom)
+			return state.sort((a, b) => b.hotel.priceFrom - a.hotel.priceFrom)
 		},
 
 		reverseSortByCost(state) {
-			return state.sort((a, b) => a.priceFrom - b.priceFrom)
+			return state.sort((a, b) => a.hotel.priceFrom - b.hotel.priceFrom)
 		}
 
 	}
