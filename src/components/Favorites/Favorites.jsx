@@ -10,7 +10,9 @@ import {
   sortByCost,
   reverseSortByRating,
   reverseSortByCost,
+  addToFavorite,
 } from "../../Redux/hotelSlice";
+import { useEffect } from "react";
 
 const Favorites = () => {
   const dispatch = useDispatch();

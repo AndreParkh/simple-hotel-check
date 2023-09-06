@@ -12,8 +12,8 @@ function App() {
 
 	<BrowserRouter>
 	<Routes>
-		<Route path='/' element={<AuthForm/>}></Route>
-		<Route path="Search" element={<ContentPage/>}/>
+		<Route path="/" element={<ContentPage/>}/>
+		<Route path='/Auth' element={<AuthForm/>}/>
 	</Routes>
   </BrowserRouter>
 

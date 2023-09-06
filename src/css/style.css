@@ -26,6 +26,9 @@ body {
 }
 
 .logout__text {
+  cursor: pointer;
+  border: none;
+  background-color: #e5e5e5;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.25em;
@@ -320,6 +323,21 @@ body {
   margin: 0 0 32px 0;
   font-size: 24px;
   text-align: center;
+}
+
+.authItem {
+  font-weight: 300;
+}
+
+.emailError,
+.passwordError {
+  margin: 0 0 16px 0;
+  color: red;
+  font-size: 14px;
+}
+
+.error {
+  color: red;
 }
 
 html,

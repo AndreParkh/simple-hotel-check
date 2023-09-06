@@ -10,7 +10,6 @@ import { useState } from "react";
 
 const SearchForm = ({ getHotelList }) => {
   const dispatch = useDispatch();
-  //   const state = useSelector((state) => state.search);
   const [searchLocation, setSearchLocation] = useState("Москва");
   const [searchDate, setSearchDate] = useState("2023-09-28");
   const [searchQtyDays, setSearchQtyDays] = useState(1);
@@ -25,10 +24,10 @@ const SearchForm = ({ getHotelList }) => {
     dispatch(getDate(checkIn));
     dispatch(getQtyDays(qtyDays));
 
-    console.log("fetchRequst request", request);
+    // console.log("fetchRequst request", request);
     let response = await fetch(request);
 
-    console.log("fetchRequst response", response);
+    // console.log("fetchRequst response", response);
     if (response.ok) {
       // если HTTP-статус в диапазоне 200-299
       // получаем тело ответа
@@ -39,9 +38,14 @@ const SearchForm = ({ getHotelList }) => {
     getHotelList(json, location, checkIn);
 
     console.log("fetchRequst json", json);
+    // return ;
   }
 
-  useEffect(() => fetchRequest(searchDate, searchQtyDays, searchLocation), []);
+  //   useEffect(() => fetchRequest(searchDate, searchQtyDays, searchLocation), []);
+  useEffect(() => {
+    const fun = () => fetchRequest(searchDate, searchQtyDays, searchLocation);
+    fun();
+  }, []);
 
   return (
     <form className="template searchform">
@@ -50,21 +54,21 @@ const SearchForm = ({ getHotelList }) => {
         id="searchLocation"
         type="text"
         state={searchLocation}
-        setState={(e) => setSearchLocation(e.target.value)} //{(e) => dispatch(getLocation(e.target.value))}
+        setState={(e) => setSearchLocation(e.target.value)}
       />
       <InputItem
         label="Дата заселения"
         id="searchDate"
         type="date"
         state={searchDate}
-        setState={(e) => setSearchDate(e.target.value)} //{(e) => dispatch(getDate(e.target.value))}
+        setState={(e) => setSearchDate(e.target.value)}
       />
       <InputItem
         label="Количество дней"
         id="searchQtyDays"
         type="number"
         state={searchQtyDays}
-        setState={(e) => setSearchQtyDays(e.target.value)} //{(e) => dispatch(getQtyDays(e.target.value))}
+        setState={(e) => setSearchQtyDays(e.target.value)}
       />
 
       <button

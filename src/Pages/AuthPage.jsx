@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import InputItem from "../components/SearchForm/InputItem";
 import { useNavigate } from "react-router-dom";
+import cn from "classnames";
 
 const AuthForm = () => {
   const [email, setEmail] = useState("");
@@ -58,43 +58,85 @@ const AuthForm = () => {
     }
   };
 
-  const navigateHandler = () => {
+  const loginHandler = () => {
     if (ifValidForm) {
-      navigate("Search");
+      localStorage.setItem("isAuth", "true");
+      navigate("/");
     }
   };
+  const classErrorEmail = cn({
+    error: emailDirty && emailError,
+    "": !(emailDirty && emailError),
+  });
+  const classErrorPassword = cn({
+    error: passwordDirty && passwordError,
+    "": !(passwordDirty && emailError),
+  });
 
   return (
     <div className="auth">
       <div className="auth__container">
         <form className="template searchform">
           <h1 className="auth__header">Simple Hotel Check</h1>
-          <InputItem
+          {/* <InputItem
             label="Логин"
             id="authLogin"
             type="email"
             state={email}
             blurHandler={blurHandler}
             setState={emailHandler}
-          />
+          /> */}
+          <div className="searchform__item authItem">
+            <label
+              className={"searchform__title " + classErrorEmail}
+              htmlFor="authLogin"
+            >
+              Логин
+            </label>
+            <br></br>
+            <input
+              type="email"
+              className={"searchform__field " + classErrorEmail}
+              id="authLogin"
+              onChange={emailHandler}
+              onBlur={(e) => blurHandler(e)}
+            />
+          </div>
           {emailDirty && emailError && (
             <div className="emailError"> {emailError} </div>
           )}
 
-          <InputItem
+          {/* <InputItem
             label="Пароль"
             id="authPassword"
             type="password"
             blurHandler={blurHandler}
             setState={passwordlHandler}
-          />
+          /> */}
+
+          <div className="searchform__item authItem">
+            <label
+              className={"searchform__title " + classErrorPassword}
+              htmlFor="authPassword"
+            >
+              Пароль
+            </label>
+            <br></br>
+            <input
+              type="password"
+              className={"searchform__field " + classErrorPassword}
+              id="authPassword"
+              onChange={passwordlHandler}
+              onBlur={(e) => blurHandler(e)}
+            />
+          </div>
           {passwordDirty && passwordError && (
             <div className="passwordError"> {passwordError} </div>
           )}
           <button
             className="searchform__btn btn"
             disabled={!ifValidForm}
-            onClick={() => navigateHandler()}
+            onClick={() => loginHandler()}
           >
             Войти
           </button>
@@ -105,3 +147,10 @@ const AuthForm = () => {
 };
 
 export default AuthForm;
+
+// const handleLogout = () => {
+// localStorage.removeItem('token');
+// setIsAuthenticated(false);
+// };
+
+// }

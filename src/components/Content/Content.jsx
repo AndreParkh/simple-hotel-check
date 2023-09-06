@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import HotelItem from "../HotelItem/HotelItem";
 import Title from "./Title";
 import { isDeepEqual } from "../../PureFunctions/pureFunctions";
+import { useEffect } from "react";
 
 const Content = ({ hotelList }) => {
   const favHotelList = useSelector((state) => state.hotels);
@@ -12,6 +13,9 @@ const Content = ({ hotelList }) => {
   );
   const qtyFavHotel = favHotelList.length;
 
+  //   useEffect(() => {
+  // 	localStorage.setItem('favoriteHotelList', favHotelList)
+  //   }, [favHotelList])
   //Images
   const Images = () => {
     const images = [null, null, null, null];
@@ -50,13 +54,6 @@ const Content = ({ hotelList }) => {
           }
         }
       }
-
-      //   const allPotEquelHotelFav = favHotelList.findAll(
-      //     (hotelInfo) => hotelInfo.hotel.hotelId === item.hotelId
-      //   );
-      //   allPotEquelHotelFav.map((favHotelItem) => {
-      //     if (isHotelFav) return;
-      //   });
     }
 
     return (

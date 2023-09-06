@@ -29,8 +29,25 @@
 
 	&__header {
 		margin: 0 0 32px 0;
-
-		font-size: 24px;
+		
+		font-size: 24px;	
 		text-align: center;
 	}
 }
+
+.authItem{
+	font-weight: 300;
+}
+
+.emailError,
+.passwordError{
+	margin: 0 0 16px 0;
+
+	color: red;
+	font-size: 14px;
+}
+
+.error{
+	color: red;
+}
+
